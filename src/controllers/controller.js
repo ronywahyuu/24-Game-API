@@ -3,7 +3,9 @@ const funcLib = require('./solver.js');
 module.exports = {
     resolveProblem(req, res) {
         try {
-            const list = req.query['numbers'].map((item) => parseInt(item));
+            const list = req.query['numbers']
+                .split(',')
+                .map((item) => parseInt(item));
 
             const calculateResult = funcLib.solve(list);
 
